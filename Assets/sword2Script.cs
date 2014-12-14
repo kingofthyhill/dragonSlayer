@@ -12,7 +12,9 @@ public class sword2Script : MonoBehaviour {
 	private int swordDamage = 1, swordExperience = 1;
 	// Creates an image variable the image.
 	private Image image; 
-	// Creates a bool array for all the triggers/
+	// Creates an interger for the level.
+	private int levelGlobal;
+	// Creates a bool array for all the triggers
 	private bool[] trigger = new bool[6];
 	// Create five material variables for the different sword types.
 	public Material IronFire, IronFire2, Gold, GoldFire, GoldFire2, BackgroundSkin;
@@ -26,18 +28,18 @@ public class sword2Script : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		levelUp (8, IronFire,1,0);
-		levelUp (16, IronFire2,2,1);
-		levelUp (32, Gold, 4,2);
-		levelUp (64, GoldFire,8,3);
-		levelUp (128, GoldFire2,16,4);
-		killingTheDragon (3000, BackgroundSkin, backgroundQuad, 100, 5);
+		levelUp (8, IronFire,1,1);
+		levelUp (16, IronFire2,2,2);
+		levelUp (32, Gold, 4,3);
+		levelUp (64, GoldFire,8,4);
+		levelUp (128, GoldFire2,16,5);
+		killingTheDragon (3000, BackgroundSkin, backgroundQuad, 100, 1);
 	}
 	/* When the expCount gets to the set experience level, it will change the material to swordType, increase the swordDamage with bonusDamage,
 	 and blocks it from happening again.*/
-	void levelUp (int experience, Material newMaterial,int bonusDamage, int triggerNum){
-		if (expCount >= experience && !trigger[triggerNum]) {
-			trigger [triggerNum] = true;
+	void levelUp (int experience, Material newMaterial,int bonusDamage, int level){
+		if (expCount >= experience && level > levelGlobal) {
+			levelGlobal  += 1;
 			image.material = newMaterial;
 			swordDamage += bonusDamage;
 			Debug.Log ("You leveled up!");
