@@ -12,7 +12,9 @@ public class sword2Script : MonoBehaviour {
 	// Creates an image variable the image.
 	private Image image;
 	// Create five material variables for the different sword types.
-	public Material IronFire, IronFire2, Gold, GoldFire, GoldFire2;
+	public Material IronFire, IronFire2, Gold, GoldFire, GoldFire2, BackgroundSkin;
+	// Creates a renderer variable for the background
+	public Renderer backgroundQuad;
 
 	// Use this for initialization
 	void Start () {
@@ -26,11 +28,18 @@ public class sword2Script : MonoBehaviour {
 		levelUp (32, Gold, false);
 		levelUp (64, GoldFire, false);
 		levelUp (128, GoldFire2, false);
+		killingTheDragon (256, BackgroundSkin, backgroundQuad, false);
 	}
 	// When the damageCount gets to damage, it will change the material to swordType
-	void levelUp (int damage, Material swordType, bool triggered){
+	void levelUp (int damage, Material newMaterial, bool triggered){
 		if (damageCount >= damage && !triggered) {
-			image.material = swordType;
+			image.material = newMaterial;
+			triggered = true;
+		}
+	}
+	void killingTheDragon (int damage, Material backgroundSkin, Renderer background, bool triggered) {
+		if (damageCount >= damage && !triggered) {
+			background.material = backgroundSkin;
 			triggered = true;
 		}
 	}
