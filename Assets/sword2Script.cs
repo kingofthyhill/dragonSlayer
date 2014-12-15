@@ -14,9 +14,8 @@ public class sword2Script : MonoBehaviour {
 	private Image image; 
 		// Creates an interger for the level.
 	private int levelGlobal;
-		/* Creates a tracking variable for the dragon's health and dragon's health minus damage.
-		Sets the dragons total health to 3000.*/
-	private int dragonHealthTotal = 3000, dragonHealthNum;
+		// Creates a tracking variable for the dragon's health minus damage.
+	private int dragonHealthNum;
 		// Creates a bool array for all the triggers
 	private bool[] trigger = new bool[6];
 		// Create five material variables for the different sword types.
@@ -25,6 +24,8 @@ public class sword2Script : MonoBehaviour {
 	public Renderer backgroundQuad;
 		// Creates a text variable for displaying the dragons health
 	public Text healthDisplay;
+		// Creates a modifiable variable for the dragon's health
+	public int dragonHealthTotal;
 	
 	void Start () {
 			// Sets the image component to image.
