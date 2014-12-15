@@ -1,9 +1,10 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\sword2Script.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\dragonScript.cs">
     <Files>
-      <File FileName="Assets\sword2Script.cs" Line="86" Column="28" />
-      <File FileName="Assets\cameraScript.cs" Line="15" Column="32" />
+      <File FileName="Assets\sword2Script.cs" Line="28" Column="31" />
+      <File FileName="Assets\playerScript.cs" Line="21" Column="59" />
+      <File FileName="Assets\dragonScript.cs" Line="39" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
