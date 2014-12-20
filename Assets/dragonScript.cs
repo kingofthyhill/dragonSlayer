@@ -15,15 +15,12 @@ public class dragonScript : MonoBehaviour {
 	public Text healthDisplay;
 	// Creates a modifiable variable for the dragon's health
 	public int dragonHealthTotal;
+	// Creates two variables to track the sound script and player script/
 	public playerScript player;
+	public soundScript sound;
+	// Creates an interger for the dragon number
 	public int dragonNum;
-	public AudioClip strike;
 
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
 	// Update is called once per frame
 	void Update () {
 		// Sets up the events for when the dragon dies.
@@ -48,11 +45,12 @@ public class dragonScript : MonoBehaviour {
 			healthDisplay.text = "Health: Dead";
 		}
 	}
+	// Makes it so it will only attack the dragon if the dragon has health greater than 0
 	public void attackTheDragon() {
 		dragonHealthNum = dragonHealthTotal - player.damageCount [dragonNum];
 		if (dragonHealthNum > 0) {
 			player.attack(dragonNum);
-			audio.PlayOneShot (strike, 1);
+			sound.playSound (0);
 		} 
 	}
 }

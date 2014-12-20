@@ -26,11 +26,6 @@ public class cameraScript : MonoBehaviour {
 		colors [0] = new Color (0, 0, 0);
 		colors [1] = new Color (0, .2392f, .4784f);
 	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
 	//Brings the camera to the numbered battle zone.
 	public void battle (int stage){
 		transform.position = stages[stage];

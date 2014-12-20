@@ -1,11 +1,12 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\upgradesScript.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\soundScript.cs">
     <Files>
-      <File FileName="Assets\upgradesScript.cs" Line="34" Column="27" />
-      <File FileName="Assets\dragonScript.cs" Line="55" Column="34" />
-      <File FileName="Assets\cameraScript.cs" Line="1" Column="1" />
-      <File FileName="Assets\playerScript.cs" Line="1" Column="1" />
+      <File FileName="Assets\upgradesScript.cs" Line="33" Column="116" />
+      <File FileName="Assets\dragonScript.cs" Line="48" Column="87" />
+      <File FileName="Assets\cameraScript.cs" Line="28" Column="3" />
+      <File FileName="Assets\playerScript.cs" Line="25" Column="26" />
+      <File FileName="Assets\soundScript.cs" Line="11" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

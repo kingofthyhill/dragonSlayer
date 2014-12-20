@@ -22,7 +22,7 @@ public class playerScript : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		// Sets the first five levels of swords
+		// Sets the first eight levels of swords
 		levelUp (8, 0, 1, 1);
 		levelUp (16, 1, 2, 2);
 		levelUp (32, 2, 4, 3);

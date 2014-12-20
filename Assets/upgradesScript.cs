@@ -12,27 +12,27 @@ public class upgradesScript : MonoBehaviour {
 	public int[] bonus = new int[2]; 
 	//Create a variable to insert the playerScript
 	public playerScript player;
+	public soundScript sound; 
 	//Create a variable to control the text for the gold Counter
 	public Text goldCounter;
-	public AudioClip buy;
 
 	// Update is called once per frame
 	void Update () {
-		buttonAvailable (0,0);
-		buttonAvailable (1,1);
+		buttonAvailable (0);
+		buttonAvailable (1);
 		goldCount ();
 	}
 	/*Takes buttonNum and costNum. References them with arrays to make the choice available only if you have enough gold. Uses playerScript*/
-	public void buttonAvailable (int buttonNum, int costNum){
-		if (cost[costNum] <= player.goldCount) {
+	public void buttonAvailable (int buttonNum){
+		if (cost[buttonNum] <= player.goldCount) {
 			upgrades[buttonNum].interactable = true;
-		} else if (cost[costNum] > player.goldCount) {
+		} else if (cost[buttonNum] > player.goldCount) {
 			upgrades[buttonNum].interactable = false;
 		}
 	}
+	// Runs when you buy an item. Plays a sound for the buying, and increases either sword damage per hit or sword experience per hit.
 	public void buyItem (int buttonNum){
-		audio.PlayOneShot (buy, 1);
-		Debug.Log ("Play");
+		sound.playSound (1);
 		if (ED [buttonNum] == "D") {
 			player.bonusDPH(bonus[buttonNum]);
 			player.goldCount = player.goldCount - cost[buttonNum];
