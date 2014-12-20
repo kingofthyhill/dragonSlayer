@@ -11,15 +11,14 @@ public class cameraScript : MonoBehaviour {
 	private Vector2[] menus = new Vector2[4];
 	//0 refers to black. 1 refers to a bluish that is the normal.
 	private Color[] colors = new Color[2]; 
-	private int stage = -1;
 
 	// Use this for initialization
 	void Start () {
 		//Setting the position of the menus
 		menus [0] = new Vector2 (1000, 0);
 		menus [1] = new Vector2 (1000, 350);
-		menus [2] = new Vector2 (1500, 0);
-		menus [3] = new Vector2 (1500, 350);
+		menus [2] = new Vector2 (2000, 0);
+		menus [3] = new Vector2 (2000, 350);
 		//Setting the position of the stages
 		stages[0] = new Vector2 (0, 0);
 		stages [1] = new Vector2 (0, 350);
@@ -32,15 +31,9 @@ public class cameraScript : MonoBehaviour {
 	void Update () {
 	
 	}
-	//Brings the camera to the battle zone that is set.
-	public void battle (){
-		if (stage != -1) {
-			transform.position = stages[stage];
-		}
-	}
-	// Sets the battle zone.
-	public void stageSet (int stageSet){
-		stage = stageSet;
+	//Brings the camera to the numbered battle zone.
+	public void battle (int stage){
+		transform.position = stages[stage];
 	}
 	// Brings the camera to the numbered menu
 	public void menu (int menuNum){

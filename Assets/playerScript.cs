@@ -6,8 +6,6 @@ public class playerScript : MonoBehaviour {
 
 	
 	// Declare your variables
-	// Create a tracking variable for the gold and for the experience
-	private int goldCount;
 	//Creates a tracking variable for the gold timer.
 	private int goldTimer;
 	// Creates a tracking variable for the damage and experience per hit of the sword and sets them both to 1
@@ -18,9 +16,10 @@ public class playerScript : MonoBehaviour {
 	public Material[] swordType = new Material[5];
 	// Creates an image variable the image.
 	public Image[] swords = new Image[2];
-	// Creates a refrenceable variable for the damage and exp
-	public int expCount, damageCount;
-	
+	// Creates a refrenceable variable for the gold and exp
+	public int expCount, goldCount;
+	public int[] damageCount = new int[2];
+
 	// Update is called once per frame
 	void Update () {
 		// Sets the first five levels of swords
@@ -29,6 +28,9 @@ public class playerScript : MonoBehaviour {
 		levelUp (32, 2, 4, 3);
 		levelUp (64, 3, 8, 4);
 		levelUp (128, 4, 16, 5);
+		levelUp (256, 4, 32, 6);
+		levelUp (512, 4, 64, 7);
+		levelUp (1024, 4, 128, 8);
 		
 	}
 	/* When the expCount gets to the set experience level, it will change the material to swordType, increase the swordDamage with bonusDamage,
@@ -44,11 +46,12 @@ public class playerScript : MonoBehaviour {
 		}
 	}
 	//Increases the damage by swordDamage amd exp by swordExperience when it is called
-	public void attack () {
-		damageCount += swordDamage;
+	public void attack (int choose) {
+		damageCount[choose] += swordDamage;
 		expCount += swordExperience;
-		if (goldTimer == 5) {
+		if (goldTimer == 4) {
 			goldCount += 1;
+			goldTimer = 0;
 		} else {
 			goldTimer += 1;
 		}

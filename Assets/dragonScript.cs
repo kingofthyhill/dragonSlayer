@@ -16,6 +16,8 @@ public class dragonScript : MonoBehaviour {
 	// Creates a modifiable variable for the dragon's health
 	public int dragonHealthTotal;
 	public playerScript player;
+	public int dragonNum;
+	public AudioClip strike;
 
 	// Use this for initialization
 	void Start () {
@@ -31,7 +33,7 @@ public class dragonScript : MonoBehaviour {
 	/*Once the damageCount has reached the set damage level, it will change the background to backgroundSkin, give you bonusExp, and 
 		 blocks it from happening again*/
 	void killingTheDragon (int damage, Material backgroundSkin, Renderer background, int bonusExp, int triggerNum) {
-		if (player.damageCount >= damage && !trigger[triggerNum]) {
+		if (player.damageCount[dragonNum] >= damage && !trigger[triggerNum]) {
 			background.material = backgroundSkin;
 			player.expCount += bonusExp;
 			trigger[triggerNum] = true;
@@ -39,11 +41,18 @@ public class dragonScript : MonoBehaviour {
 	}
 	// Displays the dragon's health as a changing variable.
 	void dragonHealth(int maxHealth) {
-		dragonHealthNum = maxHealth - player.damageCount;
+		dragonHealthNum = maxHealth - player.damageCount[dragonNum];
 		if (dragonHealthNum > 0) {
 			healthDisplay.text = "Health: " + dragonHealthNum.ToString ();
 		} else if (dragonHealthNum <= 0) {
 			healthDisplay.text = "Health: Dead";
 		}
+	}
+	public void attackTheDragon() {
+		dragonHealthNum = dragonHealthTotal - player.damageCount [dragonNum];
+		if (dragonHealthNum > 0) {
+			player.attack(dragonNum);
+			audio.PlayOneShot (strike, 1);
+		} 
 	}
 }
